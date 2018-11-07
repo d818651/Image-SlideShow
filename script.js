@@ -1,36 +1,38 @@
 var time = 5;
 var timerId;
 var currentImg = 0;
-var arrayOfImageSrs;
+var imgSrs;
 
-function run() {
+function getSrs(){
   var inputList = document.getElementById('inputList');
   var text = inputList.value;
-  arrayOfImageSrs = text.split("\n");
-  inputList.hidden = true; // скрываю текст от изменения
+  imgSrs = text.split("\n");
+  return imgSrs.length-1;
+}
+
+function run() {
+  debugger;
+  if (getDelay() == -1 || getSrs()==-1 ) return;
   document.querySelector("h2").innerHTML = "<img id=\"img\" alt=\"Image text\">"; // создаю новый элемент картинка
-  changeTime();
+  timerId = setInterval(changeImg, getDelay());  
+  changeImg();
+  // inputList.hidden = true; // скрываю текст от изменения
 }
 
 function changeImg() {
-  // if (document.getElementById("img") != undefined) 
-  {
+   {
     var img = document.getElementById("img");
-    img.src = arrayOfImageSrs[currentImg];
-    console.log(arrayOfImageSrs[currentImg]);
+    img.src = imgSrs[currentImg];
+    console.log(imgSrs[currentImg]);
     currentImg++;
-    if (currentImg >= arrayOfImageSrs.length - 1) currentImg = 0;
+    if (currentImg >= imgSrs.length - 1) currentImg = 0;
   }
 
 }
 
-function changeTime() {
+function getDelay() {
+  if (!isNaN(val)) return -1;
   var val = document.getElementById("time").value;
-  if (!isNaN(val)) {
     time = +val;
-    document.getElementById("time").style = "font-size: 18px"; // change style
-    clearInterval(timerId);
-    changeImg();
-    timerId = setInterval(changeImg, time * 1000);
-  } else alert("False time");
+    return time * 1000;
 }
