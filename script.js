@@ -6,6 +6,7 @@ function getSrs() {
   var inputList = document.getElementById("inputList");
   var text = inputList.value;
   imgSrs = text.split("\n");
+  currentImg = 0;
   return imgSrs.length - 1; //возвращаю количество строк =-1
 }
 
@@ -13,7 +14,7 @@ function run() {
   if (getDelay() == -1 || getSrs() == -1) return;
   document.querySelector("h2").innerHTML = '<img id="img" alt="Image text">'; // создаю новый элемент картинка
   timerId = setInterval(changeImg, getDelay()); // запускаю таймер
-  changeImg(); // чтобы моментально обновить картинку
+  changeImg(); // вызов чтобы моментально обновить картинку
   // inputList.hidden = true; // скрываю текст от изменения
 }
 
