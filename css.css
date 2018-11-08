@@ -3,3 +3,6 @@
   rows: 5;
 }
 
+#img {
+  animation: 3s slidein;
+}
