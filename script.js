@@ -37,7 +37,7 @@ function changeImg() {
   var img = document.getElementById("img");
   if (currentImg >= imgSrs.length - 1) currentImg = 0;
   img.src = checkUrl(currentImg);
-  img.alt = "Image №"+(currentImg+1)+" " + imgSrs[currentImg].substring(imgSrs[currentImg].lastIndexOf("/")+1) + " has wrong URL";
+  img.alt = "Image №"+(currentImg+1)+" " + imgSrs[currentImg].substring(imgSrs[currentImg].lastIndexOf("/")+1 ) + " has wrong URL";
   currentImg++; // тут пока некрасиво
 
 }
