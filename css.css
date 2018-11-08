@@ -1,8 +1,13 @@
 #inputList {
-  width: 400px;
+  width: 80%;
+  height: 50%;
   rows: 5;
 }
 
 #img {
-  animation: 3s slidein;
+  
+}
+#button{
+  width: 150px;
+  height: 50px;
 }
